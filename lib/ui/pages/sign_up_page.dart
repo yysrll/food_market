@@ -118,7 +118,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 style: ElevatedButton.styleFrom(primary: mainColor),
                 child: Text('Continue',
                     style: GoogleFonts.poppins(
-                        color: Colors.white, fontWeight: FontWeight.w500))),
+                        color: Colors.black, fontWeight: FontWeight.w500))),
           ),
         ],
       ),

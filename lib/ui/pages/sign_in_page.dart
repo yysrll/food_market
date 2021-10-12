@@ -77,7 +77,7 @@ class _SignInPageState extends State<SignInPage> {
                     style: ElevatedButton.styleFrom(primary: mainColor),
                     child: Text('Sign In',
                         style: GoogleFonts.poppins(
-                            color: Colors.white, fontWeight: FontWeight.w500))),
+                            color: Colors.black, fontWeight: FontWeight.w500))),
           ),
           Container(
             width: double.infinity,
