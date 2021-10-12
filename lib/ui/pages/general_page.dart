@@ -24,7 +24,7 @@ class GeneralPages extends StatelessWidget {
           ),
           SafeArea(
               child: Container(
-            color: backColor ?? "FAFAFC".toColor(),
+              color: backColor ?? Colors.white,
           )),
           SafeArea(
             child: ListView(
@@ -32,7 +32,6 @@ class GeneralPages extends StatelessWidget {
                 Column(
                   children: [
                     Container(
-                      margin: EdgeInsets.only(bottom: defaultMargin),
                       padding: EdgeInsets.symmetric(horizontal: defaultMargin),
                       width: double.infinity,
                       height: 100,
@@ -57,19 +56,24 @@ class GeneralPages extends StatelessWidget {
                               Text(
                                 title,
                                 style: GoogleFonts.poppins(
-                                    fontSize: 22, fontWeight: FontWeight.w500),
+                                    fontSize: 20, fontWeight: FontWeight.w500),
                               ),
                               Text(
                                 subtitle,
                                 style: GoogleFonts.poppins(
                                     color: greyColor,
-                                    fontSize: 22,
+                                    fontSize: 16,
                                     fontWeight: FontWeight.w300),
                               )
                             ],
                           )
                         ],
                       ),
+                    ),
+                    Container(
+                      height: defaultMargin,
+                      width: double.infinity,
+                      color: "FAFAFC".toColor(),
                     ),
                     child ?? SizedBox()
                   ],
