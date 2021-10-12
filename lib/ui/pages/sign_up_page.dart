@@ -1,25 +1,68 @@
 part of 'pages.dart';
 
-class SignInPage extends StatefulWidget {
+class SignUpPage extends StatefulWidget {
   @override
-  _SignInPageState createState() => _SignInPageState();
+  _SignUpPageState createState() => _SignUpPageState();
 }
 
-class _SignInPageState extends State<SignInPage> {
+class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     TextEditingController emailController = TextEditingController();
     TextEditingController passwordController = TextEditingController();
-    bool isLoading = false;
+    TextEditingController nameController = TextEditingController();
 
     return GeneralPages(
-      title: 'Sign In',
-      subtitle: "Find your best ever meal",
+      title: 'Sign Up',
+      subtitle: "Register and eat",
+      onBackButtonPressed: () {
+        Get.back();
+      },
       child: Column(
         children: [
           Container(
+            width: 110,
+            height: 110,
+            margin: EdgeInsets.only(top: 26),
+            padding: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage('assets/photo_border.png'))),
+            child: Container(
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                      image: NetworkImage('https://i.pravatar.cc/150?img=3'),
+                      fit: BoxFit.cover)),
+            ),
+          ),
+          Container(
             width: double.infinity,
-            margin: EdgeInsets.fromLTRB(defaultMargin, 26, defaultMargin, 6),
+            margin: EdgeInsets.fromLTRB(defaultMargin, 16, defaultMargin, 6),
+            child: Text(
+              "Full Name",
+              style: blackFontStyle2,
+            ),
+          ),
+          Container(
+            width: double.infinity,
+            margin: EdgeInsets.symmetric(horizontal: defaultMargin),
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(color: Colors.black),
+            ),
+            child: TextField(
+              controller: nameController,
+              decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintStyle: greyFontStyle,
+                  hintText: 'Type your full name'),
+            ),
+          ),
+          Container(
+            width: double.infinity,
+            margin: EdgeInsets.fromLTRB(defaultMargin, 16, defaultMargin, 6),
             child: Text(
               "Email Address",
               style: blackFontStyle2,
@@ -70,31 +113,13 @@ class _SignInPageState extends State<SignInPage> {
             margin: EdgeInsets.only(top: 24),
             height: 45,
             padding: EdgeInsets.symmetric(horizontal: defaultMargin),
-            child: isLoading
-                ? SpinKitFadingCircle(size: 45.0, color: mainColor)
-                : ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(primary: mainColor),
-                    child: Text('Sign In',
-                        style: GoogleFonts.poppins(
-                            color: Colors.white, fontWeight: FontWeight.w500))),
+            child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(primary: mainColor),
+                child: Text('Continue',
+                    style: GoogleFonts.poppins(
+                        color: Colors.white, fontWeight: FontWeight.w500))),
           ),
-          Container(
-            width: double.infinity,
-            margin: EdgeInsets.only(top: 24),
-            height: 45,
-            padding: EdgeInsets.symmetric(horizontal: defaultMargin),
-            child: isLoading
-                ? SpinKitFadingCircle(size: 45.0, color: mainColor)
-                : ElevatedButton(
-                    onPressed: () {
-                      Get.to(SignUpPage());
-                    },
-                    style: ElevatedButton.styleFrom(primary: greyColor),
-                    child: Text('Create New Account',
-                        style: GoogleFonts.poppins(
-                            color: Colors.white, fontWeight: FontWeight.w500))),
-          )
         ],
       ),
     );
