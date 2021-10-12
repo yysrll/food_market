@@ -28,6 +28,7 @@ dependencies:
   flutter_spinkit: ^4.1.2
   get: ^4.1.4
   google_fonts: ^1.1.0
+  material_design_icons_flutter: ^5.0.6295
   supercharged: ^1.10.0
 
 dev_dependencies:
